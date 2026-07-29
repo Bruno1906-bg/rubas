@@ -27,7 +27,7 @@ export function signAccessToken(payload: TokenPayload): string {
   return jwt.sign(payload, privateKey, {
     algorithm: "RS256",
     expiresIn: process.env.JWT_ACCESS_EXPIRES_IN || "15m",
-  });
+  } as jwt.SignOptions);
 }
 
 /**
@@ -37,7 +37,7 @@ export function signRefreshToken(payload: { uid: string }): string {
   return jwt.sign(payload, privateKey, {
     algorithm: "RS256",
     expiresIn: process.env.JWT_REFRESH_EXPIRES_IN || "7d",
-  });
+  } as jwt.SignOptions);
 }
 
 /**
