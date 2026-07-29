@@ -10,5 +10,5 @@
     "strict": true /* Activa la verificación estricta de tipos */,
     "skipLibCheck": true /* Omite revisión de tipos dentro de node_modules */
   },
-  "include": ["src/*/"]
+  "include": ["src/**/*.ts"]
 }
