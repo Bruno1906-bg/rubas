@@ -20,9 +20,15 @@ app.get("/health", (_req: Request, res: Response) => {
   res.status(200).json({ ok: true, mensaje: "API Ruba Studio activa" });
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
-});
+// IMPORTANTE: Solo levantamos el servidor local con app.listen si NO estamos en producción (Vercel)
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+  });
+}
+
+// EXPORTAR la app para que Vercel pueda manejarla como función serverless
+export default app;
 
 /*
 
